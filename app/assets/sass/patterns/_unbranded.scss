@@ -10,7 +10,7 @@ $toolkit-font-stack: $Helvetica-Regular;
 
   // Use the universal selector and !important to *ALWAYS OVERRIDE* GDS Transport
   * {
-    font-family: Futura, $toolkit-font-stack !important;
+    font-family: $toolkit-font-stack !important;
   }
 
   // DWP organisation styles
@@ -50,7 +50,7 @@ $toolkit-font-stack: $Helvetica-Regular;
   // Remove GOV.UK footer styles
   #footer {
      border: 0;
-    
+
     .footer-meta .footer-meta-inner, .footer-meta .copyright {
       display: none;
     }

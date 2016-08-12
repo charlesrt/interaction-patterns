@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1>
+        Solving common design problems
+      </h1>
+
+      <p class="lede">
+        These patterns are repeatable solutions for solving common design problems that have been identified across multiple services in government.
+      </p>
+
+      <!-- <p>
+        These patterns are dependant on access to data to be successfully built and implemented as microservices. Before tackling that challenge, it's important that the user need is fully understood, assumptions validated and the interaction design perfected through prototyping.
+      </p> -->
+
+      <h2>
+        Prototypes
+      </h2>
+
+      <ul>
+        <li><a href="/give-your-address">Give your address</a></li>
+        <li><a href="/give-your-bank-details">Give your bank details</a></li>
+        <li><a href="/pick-a-date">Pick a date</a></li>
+        <li><a href="/find-your-gp-doctor">Find your GP doctor</a></li>
+      </ul>
+
+      <h2 class="heading-medium">
+        Other resources
+      </h2>
+
+      <ul class="list list-bullet">
+				<li>
+					<a href="https://govuk-elements.herokuapp.com/snippets/">
+						Guide to GOV.UK Elements
+					</a>
+				</li>
+				<li>
+					<a href="https://www.gov.uk/service-manual">
+						Service design manual
+					</a>
+				</li>
+				<li>
+					<a href="https://www.gov.uk/design-principles">
+						Government Digital Service Design Principles
+					</a>
+				</li>
+			</ul>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+// If you need to create a page as part of your journey, but without GOV.UK branding
+// See localhost:3000/examples/unbranded/
+
+// Override the govuk_frontend_toolkit's font stack
+// https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss#L13
+$toolkit-font-stack: $Helvetica-Regular;
+
+.unbranded {
+  background: $white;
+
+  // Use the universal selector and !important to *ALWAYS OVERRIDE* GDS Transport
+  * {
+    font-family: Futura, $toolkit-font-stack !important;
+  }
+
+  // DWP organisation styles
+  a {
+    color: $base-color;
+
+    &:link,
+    &:active,
+    &:visited {
+      color: $base-color;
+    }
+
+    &:hover,
+    &:focus {
+      color: darken($base-color, 16%);
+    }
+  }
+
+
+  // Remove GOV.UK header styles
+  #global-header {
+    background-color: $base-color;
+
+    .header-wrapper {
+      background-color: $base-color;
+    }
+    .header-logo {
+      display: none;
+    }
+
+  }
+
+  #global-header-bar {
+    display: none;
+  }
+
+  // Remove GOV.UK footer styles
+  #footer {
+     border: 0;
+    
+    .footer-meta .footer-meta-inner, .footer-meta .copyright {
+      display: none;
+    }
+
+  }
+
+}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1>
+        Give your address
+      </h1>
+
+      <h2>
+        Assumptions
+      </h2>
+
+      <p>
+        ...
+      </p>
+
+      <h2>
+        Existing pattern
+      </h2>
+
+      <form>
+
+        <!-- Address -->
+        <div class="form-group">
+          <label class="form-label-bold" for="address">Address</label>
+          <input type="text" class="form-control" id="address">
+          <input type="text" class="form-control" id="address">
+          <input type="text" class="form-control" id="address">
+        </div>
+
+        <!-- Postcode -->
+        <div class="form-group">
+          <label class="form-label-bold" for="postcode">Postcode</label>
+          <input type="text" class="form-control" id="postcode">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

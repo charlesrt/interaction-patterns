@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">
+        Select your address
+      </h1>
+
+      <form action="confirm-address" method="">
+
+        <div class="form-group">
+          <fieldset>
+
+            <legend class="visuallyhidden">Select your address</legend>
+
+            {% for i in range(1, 11) -%}
+
+              <label for="radio-part-{{i}}" class="block-label">
+                <input id="radio-part-{{i}}" type="radio" name="housing-act" value="Part {{i}}">
+                <span class="heading-small">{{i}} Union Road</span><br>
+                New Mills. High Peak. SK22 4QP
+              </label>
+
+            {% endfor %}
+
+            <label for="radio-part-0" class="block-label">
+              <input id="radio-part-0" type="radio" name="housing-act" value="Part {{i}}">
+              <span class="heading-small">None of these are my address</span>
+            </label>
+
+            <div class="form-group">
+              <input type="submit" class="button" value="Continue">
+            </div>
+
+          </fieldset>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

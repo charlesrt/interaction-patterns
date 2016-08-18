@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">
+        Enter account details
+      </h1>
+
+      <form action="confirm-address" method="">
+
+        <div class="form-group">
+          <fieldset>
+
+            <legend class="visuallyhidden">Enter account details</legend>
+
+              <label for="radio-part-{{i}}" class="block-label">
+                <input id="radio-part-{{i}}" type="radio" name="housing-act" value="Part {{i}}">
+                <span class="heading-small">Natwest Bank</span><br>
+                Some address
+              </label>
+
+            <label for="radio-part-0" class="block-label">
+              <input id="radio-part-0" type="radio" name="housing-act" value="Part {{i}}">
+              <span class="heading-small">This is not my bank</span>
+            </label>
+
+            <!-- Account number -->
+            <div class="form-group">
+              <fieldset>
+                <label class="form-label-bold" for="ba-account-number">
+                  Account number
+                </label>
+                <input type="text" class="form-control" id="ba-account-number" name="ba-account-number" value="" maxlength="10">
+              </fieldset>
+            </div>
+
+            <!-- Building society optional -->
+            <div class="form-group">
+              <fieldset>
+                <label class="form-label-bold" for="bs-society-roll">
+                  Building society roll or reference number (optional)
+                  <span class="form-hint">If your building society uses a roll or reference number, you will find it on your passbook</span>
+                </label>
+                <input type="text" class="form-control" id="bs-society-roll" name="bs-society-roll" value="" data-required="true">
+              </fieldset>
+            </div>
+
+
+            <div class="form-group">
+              <input type="submit" class="button" value="Continue">
+            </div>
+
+          </fieldset>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

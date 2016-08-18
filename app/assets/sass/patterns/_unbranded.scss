@@ -28,7 +28,32 @@ $toolkit-font-stack: $Helvetica-Regular;
       color: darken($base-color, 16%);
     }
   }
+  .heading-secondary {
+    @include heading-27();
+    display: block;
+    color: $base-color;
+    font-weight: 700;
+  }
+  .heading-medium {
+    border-bottom: 1px solid $grey-2;
+    padding-bottom: 10px;
+  }
+  .button {
+    background-color: $base-color;
+    color: $white !important;
 
+    &:visited {
+      background-color: $base-color;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: darken($base-color, 16%);
+    }
+  }
+  .govuk-box-highlight {
+    background: $base-color;
+  }
 
   // Remove GOV.UK header styles
   #global-header {

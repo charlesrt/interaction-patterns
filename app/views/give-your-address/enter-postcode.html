@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">
+        Enter your postcode
+      </h1>
+
+      <form action="select-address" method="">
+
+        <div class="form-group" data-required data-error="Enter your postcode">
+          <label for="postCode" class="form-label">Postcode</label>
+          <input type="text" name="postCode" id="postCode" class="form-control form-control-1-4" value="">
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

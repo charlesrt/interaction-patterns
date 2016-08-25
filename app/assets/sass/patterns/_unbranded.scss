@@ -53,6 +53,8 @@ $toolkit-font-stack: $Helvetica-Regular;
   }
   .govuk-box-highlight {
     background: $base-color;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   // Remove GOV.UK header styles

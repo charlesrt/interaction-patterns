@@ -14,36 +14,32 @@
         Enter account details
       </h1>
 
-      <form action="confirm-address" method="">
+      <form action="complete" method="">
 
-        <div class="form-group">
-          <fieldset>
+<pre><code>
+  <span class="bold-small">Lloyds TSB</span>
+  Bank House, Union Road
+  New Mills. High Peak. SK22 4QP
+  <a href="">This is not my bank</a>
 
-            <legend class="visuallyhidden">Enter account details</legend>
+</code>
+</pre>
 
-              <label for="radio-part-{{i}}" class="block-label">
-                <input id="radio-part-{{i}}" type="radio" name="housing-act" value="Part {{i}}">
-                <span class="heading-small">Natwest Bank</span><br>
-                Some address
-              </label>
-
-            <label for="radio-part-0" class="block-label">
-              <input id="radio-part-0" type="radio" name="housing-act" value="Part {{i}}">
-              <span class="heading-small">This is not my bank</span>
-            </label>
+        <legend class="visuallyhidden">Enter account details</legend>
 
             <!-- Account number -->
             <div class="form-group">
               <fieldset>
                 <label class="form-label-bold" for="ba-account-number">
-                  Account number
+                  Account number (8 digits)
+                  <span class="form-hint">Add a zero before the first number of your Lloyds TSB account number</span>
                 </label>
                 <input type="text" class="form-control" id="ba-account-number" name="ba-account-number" value="" maxlength="10">
               </fieldset>
             </div>
 
             <!-- Building society optional -->
-            <div class="form-group">
+            <!-- <div class="form-group">
               <fieldset>
                 <label class="form-label-bold" for="bs-society-roll">
                   Building society roll or reference number (optional)
@@ -51,17 +47,23 @@
                 </label>
                 <input type="text" class="form-control" id="bs-society-roll" name="bs-society-roll" value="" data-required="true">
               </fieldset>
-            </div>
+            </div> -->
 
-
-            <div class="form-group">
-              <input type="submit" class="button" value="Continue">
-            </div>
-
-          </fieldset>
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue">
         </div>
 
       </form>
+
+      <div class="form-group">
+        <details>
+          <summary><span class="summary">I don't know my account number</span></summary>
+          <div class="panel panel-border-narrow">
+            <p>
+              You can find your 8-digit account number on your debit card, cheque or bank statement. Contact your bank or check via online banking if you can't find it.
+            </p>
+          </div>
+        </details>
 
     </div>
   </div>

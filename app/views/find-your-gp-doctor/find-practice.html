@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">
+        Find your GP practice
+      </h1>
+
+      <p>
+        To find your GP practice, enter one of both of: your practice name; address nearby.
+      </p>
+
+      <form action="select-practice" method="">
+
+        <div class="form-group" data-required data-error="Enter the name of your GP practice">
+          <label for="gpPractice" class="form-label">Your GP practice</label>
+          <input type="text" name="gpPractice" id="gpPractice" class="form-control form-control-2-3" value="">
+        </div>
+
+        <div class="form-group" data-required data-error="Enter a location or postcode">
+          <label for="postCode" class="form-label">Nearby location, or postcode</label>
+          <input type="text" name="postCode" id="postCode" class="form-control form-control-1-2" value="">
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

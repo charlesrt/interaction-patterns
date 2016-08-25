@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">
+        Select your GP practice
+      </h1>
+
+      <form action="select-gp" method="">
+
+        <div class="form-group">
+          <fieldset>
+
+            <legend class="visuallyhidden">Select your GP practice</legend>
+
+            <label for="radio-part-1" class="block-label">
+              <input id="radio-part-1" type="radio" name="housing-act" value="Part 1">
+              <span class="heading-small">John Smith Clinic, Union Road</span><br>
+              New Mills. High Peak. SK22 4QP
+            </label>
+
+            <label for="radio-part-2" class="block-label">
+              <input id="radio-part-2" type="radio" name="housing-act" value="Part 2">
+              <span class="heading-small">River Surgery, Union Road</span><br>
+              New Mills. High Peak. SK22 4QP
+            </label>
+
+            <label for="radio-part-0" class="block-label">
+              <input id="radio-part-0" type="radio" name="housing-act" value="Part 0">
+              <span class="heading-small">None of these are my GP practice</span>
+            </label>
+
+            <div class="form-group">
+              <input type="submit" class="button" value="Continue">
+            </div>
+
+          </fieldset>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

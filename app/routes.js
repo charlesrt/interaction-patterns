@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res) {
-  
+
   res.render('index');
 
 });
@@ -40,5 +40,17 @@ router.get('/examples/over-18', function (req, res) {
 });
 
 // add your routes here
+
+router.get('/give-your-address/confirm-address', function (req, res) {
+
+  var selectAddress = req.query.selectAddress;
+
+  if (selectAddress == "false"){
+    res.redirect("/give-your-address/manual-address");
+  } else {
+    res.render('give-your-address/confirm-address', { 'address' : selectAddress });
+  }
+
+});
 
 module.exports = router;

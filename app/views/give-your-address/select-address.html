@@ -11,29 +11,28 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-large">
-        Select your address
+        Select address
       </h1>
 
-      <form action="confirm-address" method="">
+      <form action="confirm-address" method="get">
 
         <div class="form-group">
           <fieldset>
 
-            <legend class="visuallyhidden">Select your address</legend>
+            <legend class="visuallyhidden">Select address</legend>
 
             {% for i in range(1, 11) -%}
 
               <label for="radio-part-{{i}}" class="block-label">
-                <input id="radio-part-{{i}}" type="radio" name="housing-act" value="Part {{i}}">
-                <span class="heading-small">{{i}} Union Road</span><br>
-                New Mills. High Peak. SK22 4QP
+                <input id="radio-part-{{i}}" type="radio" name="selectAddress" value="{{i}}">
+                <span class="font-small">{{i}} Union Road, New Mills, High Peak, SK22 4QP
               </label>
 
             {% endfor %}
 
             <label for="radio-part-0" class="block-label">
-              <input id="radio-part-0" type="radio" name="housing-act" value="Part {{i}}">
-              <span class="heading-small">None of these are my address</span>
+              <input id="radio-part-0" type="radio" name="selectAddress" value="false">
+              <span class="font-small">None of these are my address</span>
             </label>
 
             <div class="form-group">

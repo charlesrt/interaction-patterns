@@ -31,3 +31,21 @@ $base-color: $light-blue;
 }
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.form-label-relative {
+  position: relative;
+}
+.form-input-prefix {
+  color: $black;
+  position: absolute;
+  bottom: -39px;
+  left: 10px;
+  z-index: 20;
+  font-weight: bold;
+  @include media (mobile) {
+    bottom: -34px;
+  }
+}
+.form-control-prefix {
+  padding-left: 1.6em;
+}

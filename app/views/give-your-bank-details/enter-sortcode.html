@@ -54,6 +54,7 @@
         </details>
         <details>
           <summary><span class="summary">I don't have a bank account</span></summary>
+          <form action="" method="">
           <div class="panel panel-border-narrow">
             <fieldset class="inline">
               <legend>
@@ -61,17 +62,35 @@
                   Do you have a building society or Post Office card account?
                 </span>
               </legend>
-              <label class="block-label" for="radio-inline-1a">
-                <input id="radio-inline-1a" type="radio" name="radio-inline-group" value="Yes">
+              <label class="block-label" for="radio-inline-1a" data-target="account_yes">
+                <input id="radio-inline-1a"
+                type="radio" name="radio-inline-group" value="Yes">
                 Yes
               </label>
-              <label class="block-label" for="radio-inline-2a">
+              <label class="block-label" for="radio-inline-2a" data-target="account_no">
                 <input id="radio-inline-2a" type="radio" name="radio-inline-group" value="No">
                 No
               </label>
             </fieldset>
+
+            <div class="form-group">
+              <div class="panel panel-border-narrow js-hidden" id="account_yes">
+                <p>
+                  Awesome. We call them bank accounts too. You can go ahead and enter your sort code in the form and continue.
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="panel panel-border-narrow js-hidden" id="account_no">
+                <p>
+                  You will need somewhere that we can pay your money into. We may be able to set something up for you. <a href="complete">Skip this section and we will contact you later.</a>
+                </p>
+              </div>
+            </div>
           </div>
+          </form>
         </details>
+
       </div>
 
     </div>

@@ -14,11 +14,11 @@
         Enter account details
       </h1>
 
-      <form action="enter-account1" method="">
+      <form action="complete" method="post">
 
 <pre><code><span class="bold-medium">
-  12-34-56
-  Natwest Current Account
+  {{ session.baSort1 }}-{{ session.baSort2 }}-{{ session.baSort3 }}
+  A Bank Account
 </span>
 </code>
 </pre>
@@ -28,10 +28,10 @@
             <!-- Account number -->
             <div class="form-group">
               <fieldset>
-                <label class="form-label-bold" for="ba-account-number">
+                <label class="form-label-bold" for="baAccountNumber">
                   Account number (8 digits)
                 </label>
-                <input type="text" class="form-control form-control-1-3" id="ba-account-number" name="ba-account-number" value="" maxlength="8">
+                <input type="text" class="form-control form-control-1-3" id="baAccountNumber" name="baAccountNumber" value="" maxlength="8">
               </fieldset>
             </div>
 

@@ -14,7 +14,7 @@
         Pick a date
       </h1>
 
-      <form action="complete" method="">
+      <form action="complete" method="post">
 
         <!-- Date -->
         <div class="form-group">
@@ -36,11 +36,16 @@
                 <label for="dob-year">Year</label>
                 <input class="form-control" id="dob-year" type="number" pattern="[0-9]*" min="0" max="2014">
               </div>
+
+              <div class="form-group">
+                <a href="#"><img style="margin-top:36px;" src="/public/images/icon-calendar-2x.png" width="28" height="28" /></a>
+              </div>
+
             </div>
 
           </fieldset>
 
-          <p class="font-xsmall"><a href="">Today</a>&nbsp;&nbsp;<a href="">Tomorrow</a>&nbsp;&nbsp;<a href="">Yesterday</a><br><a href="">Three days from now</a>&nbsp;&nbsp;<a href="">One week from now</a></p>
+          <p class="font-xsmall"><a id="yesterday" href="">Yesterday</a>&nbsp;&nbsp;<a id="tomorrow" href="">Tomorrow</a>&nbsp;&nbsp;<a id="two-weeks" href="">Two weeks from now</a></p>
 
         </div>
 

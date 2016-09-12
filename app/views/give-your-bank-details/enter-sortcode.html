@@ -14,7 +14,7 @@
         Enter your sortcode
       </h1>
 
-      <form action="enter-account" method="">
+      <form action="enter-account" method="post">
 
         <!-- Sort code -->
         <legend class="form-label-bold">Sort code (6 digits)</legend>
@@ -22,17 +22,17 @@
           <fieldset>
             <div class="form-group form-group-day">
               <label for="ba-sort1"></label>
-              <input class="form-control" id="ba-sort1" maxlength="2" name="ba-sort1" value="" type="text">
+              <input class="form-control" id="ba-sort1" maxlength="2" name="baSort1" value="" type="text">
             </div>
 
             <div class="form-group form-group-month">
               <label for="ba-sort2"></label>
-              <input class="form-control" id="ba-sort2" maxlength="2" name="ba-sort2" value="" type="text">
+              <input class="form-control" id="ba-sort2" maxlength="2" name="baSort2" value="" type="text">
             </div>
 
             <div class="form-group form-group-month">
               <label for="ba-sort3"></label>
-              <input class="form-control" id="ba-sort3" maxlength="2" name="ba-sort3" value="" type="text">
+              <input class="form-control" id="ba-sort3" maxlength="2" name="baSort3" value="" type="text">
             </div>
           </fieldset>
         </div>
@@ -55,38 +55,10 @@
         <details>
           <summary><span class="summary">I don't have a bank account</span></summary>
           <form action="" method="">
-          <div class="panel panel-border-narrow">
-            <fieldset class="inline">
-              <legend>
-                <span class="form-label-bold">
-                  Do you have a building society or Post Office card account?
-                </span>
-              </legend>
-              <label class="block-label" for="radio-inline-1a" data-target="account_yes">
-                <input id="radio-inline-1a"
-                type="radio" name="radio-inline-group" value="Yes">
-                Yes
-              </label>
-              <label class="block-label" for="radio-inline-2a" data-target="account_no">
-                <input id="radio-inline-2a" type="radio" name="radio-inline-group" value="No">
-                No
-              </label>
-            </fieldset>
-
-            <div class="form-group">
-              <div class="panel panel-border-narrow js-hidden" id="account_yes">
-                <p>
-                  Awesome. We call them bank accounts too. You can go ahead and enter your sort code in the form and continue.
-                </p>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="panel panel-border-narrow js-hidden" id="account_no">
-                <p>
-                  You will need somewhere that we can pay your money into. We may be able to set something up for you. <a href="complete">Skip this section and we will contact you later.</a>
-                </p>
-              </div>
-            </div>
+          <div class="panel panel-border-narrow">          
+            <p>
+              You will need somewhere that we can pay your money into. We may be able to set something up for you. <a href="complete">Skip this section and we will contact you later.</a>
+            </p>
           </div>
           </form>
         </details>

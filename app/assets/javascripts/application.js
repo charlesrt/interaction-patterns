@@ -1,3 +1,36 @@
+//Picking dates proto func
+$("#yesterday").click(function() {
+  var currentDate = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+  $('#dob-day').val(day);
+  $('#dob-month').val(month);
+  $('#dob-year').val(year);
+  return false;
+});
+$("#tomorrow").click(function() {
+  var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+  $('#dob-day').val(day);
+  $('#dob-month').val(month);
+  $('#dob-year').val(year);
+  return false;
+});
+$("#two-weeks").click(function() {
+  var currentDate = new Date(new Date().getTime() + 336 * 60 * 60 * 1000);
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+  $('#dob-day').val(day);
+  $('#dob-month').val(month);
+  $('#dob-year').val(year);
+  return false;
+});
+
+
 function ShowHideContent() {
   var self = this;
 

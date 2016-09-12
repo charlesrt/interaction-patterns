@@ -14,7 +14,19 @@
         Enter bank account details
       </h1>
 
-      <form action="enter-sortcode-again" method="post">
+      <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+        <p class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+          We were unable to process this request
+        </p>
+
+        <p>
+          Please try again.
+        </p>
+
+      </div>
+
+      <form action="enter-sortcode-final" method="post">
 
         <!-- Sort code -->
         <legend class="form-label-bold">Sort code (6 digits)</legend>

@@ -14,7 +14,7 @@
         Select your GP doctor
       </h1>
 
-      <p><span class="bold-small">{{practice}}</span><br>
+      <p><span class="bold-small">{{ session.gpPractice }}</span><br>
       Union Road, New Mills, High Peak, SK22 4QP</p>
 
       <form action="confirm-gp" method="post">
@@ -25,17 +25,17 @@
             <legend class="visuallyhidden">Select your GP doctor</legend>
 
             <label for="radio-part-1" class="block-label">
-              <input id="radio-part-1" type="radio" name="selectGP" value="Part 1">
+              <input id="radio-part-1" type="radio" name="gpName" value="Dr John">
               <span class="font-small">Dr John</span>
             </label>
 
             <label for="radio-part-2" class="block-label">
-              <input id="radio-part-2" type="radio" name="selectGP" value="Part 2">
+              <input id="radio-part-2" type="radio" name="gpName" value="Dr Smith">
               <span class="font-small">Dr Smith</span>
             </label>
 
             <label for="radio-part-0" class="block-label">
-              <input id="radio-part-0" type="radio" name="selectGP" value="false">
+              <input id="radio-part-0" type="radio" name="gpName" value="false">
               <span class="font-small">None of these are my GP doctor</span>
             </label>
 

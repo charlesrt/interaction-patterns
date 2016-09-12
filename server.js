@@ -68,7 +68,7 @@ app.use(bodyParser.urlencoded({
 // Support session data
 app.use(session({
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   secret: Math.round(Math.random()*100000).toString()
 }));
 
@@ -122,7 +122,7 @@ app.get(/\.html?$/i, function (req, res){
 });
 
 // auto render any view that exists
-app.get(/^\/([^.]+)$/, function (req, res) {
+app.all(/^\/([^.]+)$/, function (req, res) {
 
   var path = (req.params[0]);
 

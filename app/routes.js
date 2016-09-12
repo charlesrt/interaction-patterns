@@ -1,5 +1,8 @@
 var express = require('express');
-var router = express.Router();
+    router = express.Router();
+    utils = require(__dirname + '/utils');
+
+router.use(utils.autoStoreData);
 
 router.get('/', function (req, res) {
 
@@ -7,43 +10,7 @@ router.get('/', function (req, res) {
 
 });
 
-
-// Example routes - feel free to delete these
-
-// Passing data into a page
-
-router.get('/examples/template-data', function (req, res) {
-
-  res.render('examples/template-data', { 'name' : 'Foo' });
-
-});
-
-// Branching
-
-router.get('/examples/over-18', function (req, res) {
-
-  // get the answer from the query string (eg. ?over18=false)
-  var over18 = req.query.over18;
-
-  if (over18 == "false"){
-
-    // redirect to the relevant page
-    res.redirect("/examples/under-18");
-
-  } else {
-
-    // if over18 is any other value (or is missing) render the page requested
-    res.render('examples/over-18');
-
-  }
-
-});
-
-// add your routes here
-
 router.get('/give-your-address/confirm-address', function (req, res) {
-
-  console.log(req.session.data);
 
   var selectAddress = req.query.selectAddress;
 
@@ -55,14 +22,12 @@ router.get('/give-your-address/confirm-address', function (req, res) {
 
 });
 
-router.get('/find-your-gp-doctor/select-gp', function (req, res) {
+router.post('/find-your-gp-doctor/select-gp', function (req, res) {
 
-  var selectPractice = req.query.selectPractice;
-
-  if (selectPractice == "false"){
+  if (req.body.selectPractice == "false"){
     res.redirect("/find-your-gp-doctor/manual-gp");
   } else {
-    res.render('find-your-gp-doctor/select-gp', { 'practice' : selectPractice });
+    res.render('find-your-gp-doctor/select-gp');
   }
 
 });

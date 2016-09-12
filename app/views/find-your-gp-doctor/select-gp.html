@@ -14,7 +14,10 @@
         Select your GP doctor
       </h1>
 
-      <form action="complete" method="">
+      <p><span class="bold-small">{{practice}}</span><br>
+      Union Road, New Mills, High Peak, SK22 4QP</p>
+
+      <form action="confirm-gp" method="">
 
         <div class="form-group">
           <fieldset>
@@ -22,20 +25,18 @@
             <legend class="visuallyhidden">Select your GP doctor</legend>
 
             <label for="radio-part-1" class="block-label">
-              <input id="radio-part-1" type="radio" name="housing-act" value="Part 1">
-              <span class="heading-small">Dr John</span><br>
-              John Smith Clinic
+              <input id="radio-part-1" type="radio" name="selectGP" value="Part 1">
+              <span class="font-small">Dr John</span>
             </label>
 
             <label for="radio-part-2" class="block-label">
-              <input id="radio-part-2" type="radio" name="housing-act" value="Part 2">
-              <span class="heading-small">Dr Smith</span><br>
-              John Smith Clinic
+              <input id="radio-part-2" type="radio" name="selectGP" value="Part 2">
+              <span class="font-small">Dr Smith</span>
             </label>
 
             <label for="radio-part-0" class="block-label">
-              <input id="radio-part-0" type="radio" name="housing-act" value="Part 0">
-              <span class="heading-small">None of these are my GP doctor</span>
+              <input id="radio-part-0" type="radio" name="selectGP" value="false">
+              <span class="font-small">None of these are my GP doctor</span>
             </label>
 
             <div class="form-group">

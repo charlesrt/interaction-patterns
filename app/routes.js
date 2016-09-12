@@ -43,12 +43,44 @@ router.get('/examples/over-18', function (req, res) {
 
 router.get('/give-your-address/confirm-address', function (req, res) {
 
+  console.log(req.session.data);
+
   var selectAddress = req.query.selectAddress;
 
   if (selectAddress == "false"){
     res.redirect("/give-your-address/manual-address");
   } else {
     res.render('give-your-address/confirm-address', { 'address' : selectAddress });
+  }
+
+});
+
+router.get('/find-your-gp-doctor/select-gp', function (req, res) {
+
+  var selectPractice = req.query.selectPractice;
+
+  if (selectPractice == "false"){
+    res.redirect("/find-your-gp-doctor/manual-gp");
+  } else {
+    res.render('find-your-gp-doctor/select-gp', { 'practice' : selectPractice });
+  }
+
+});
+
+router.get('/find-your-gp-doctor/confirm-gp', function (req, res) {
+
+  var selectGP = req.query.selectGP;
+      selectPractice = req.body.practice;
+      console.log(req.body);
+
+
+  if (selectGP == "false"){
+    res.redirect("/find-your-gp-doctor/manual-gp");
+  } else {
+    res.render('find-your-gp-doctor/confirm-gp', {
+      'practice' : selectPractice,
+      'gp' : selectGP
+    });
   }
 
 });

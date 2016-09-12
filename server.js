@@ -68,7 +68,7 @@ app.use(bodyParser.urlencoded({
 // Support session data
 app.use(session({
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   secret: Math.round(Math.random()*100000).toString()
 }));
 

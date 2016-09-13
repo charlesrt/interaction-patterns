@@ -17,7 +17,10 @@
       <form action="complete" method="post">
 
 <pre><code><span class="bold-medium">
-  {{ session.number }} {{ session.address }},{{ session.postcode }}
+  {{ session.number }} Union Road
+  New Mills
+  High Peak
+  SK22 4QP
 </span>
 </code>
 </pre>
@@ -34,20 +37,20 @@
 
                   <div class="form-group">
                     <label class="form-label" for="address">House or flat number and street</label>
-                    <input type="text" name="address" id="address-1" class="form-control" value="{{ session.number }} {{ session.address }}">
-                    <input type="text" name="address" id="address-2" class="form-control" value="">
+                    <input type="text" name="address" id="address-1" class="form-control" value="{{ session.number }} Union Road">
+                    <input type="text" name="address" id="address-2" class="form-control" value="New Mills">
                     <input type="text" name="address" id="address-3" class="form-control" value="">
 
                   </div>
 
                   <div class="form-group" data-required data-error="Enter your town or city">
                     <label for="town" class="form-label">Town or city</label>
-                    <input type="text" name="town" id="town" class="form-control" value="">
+                    <input type="text" name="town" id="town" class="form-control" value="High Peak">
                   </div>
 
                   <div class="form-group" data-required data-error="Enter your postcode">
                     <label for="postCode" class="form-label">Postcode</label>
-                    <input type="text" name="postCode" id="postCode" class="form-control" value="{{ session.postcode }}">
+                    <input type="text" name="postCode" id="postCode" class="form-control" value="SK22 4QP">
                   </div>
 
                 </fieldset>

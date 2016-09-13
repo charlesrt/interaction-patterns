@@ -6,18 +6,18 @@ router.use(utils.autoStoreData);
 
 router.get('/', function (req, res) {
 
+  req.session.destroy();
+
   res.render('index');
 
 });
 
-router.get('/give-your-address/confirm-address', function (req, res) {
+router.post('/give-your-address/confirm-address', function (req, res) {
 
-  var selectAddress = req.query.selectAddress;
-
-  if (selectAddress == "false"){
+  if (req.body.number == "false"){
     res.redirect("/give-your-address/manual-address");
   } else {
-    res.render('give-your-address/confirm-address', { 'address' : selectAddress });
+    res.render('give-your-address/confirm-address');
   }
 
 });

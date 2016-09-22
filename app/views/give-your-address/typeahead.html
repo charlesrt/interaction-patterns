@@ -14,7 +14,7 @@
         Search address
       </h1>
 
-      <form action="confirm-address" method="post">
+      <form action="complete" method="post">
 
         <div id="typeahead" class="form-group" data-required data-error="Enter your postcode">
           <label for="postcode" class="form-label">Postcode or first line of address</label>
@@ -43,114 +43,40 @@
 
 <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
 
-<!-- <script>
-var substringMatcher = function(strs) {
-  return function findMatches(q, cb) {
-    var matches, substringRegex;
-
-    // an array that will be populated with substring matches
-    matches = [];
-
-    // regex used to determine if a string contains the substring `q`
-    substrRegex = new RegExp(q, 'i');
-
-    // iterate through the pool of strings and for any string that
-    // contains the substring `q`, add it to the `matches` array
-    $.each(strs, function(i, str) {
-      if (substrRegex.test(str)) {
-        matches.push(str);
-      }
-    });
-
-    cb(matches);
-  };
-};
-
-var address = [
-  {% for i in range(1, 31) -%}
-    '{{i}} Union Road, New Mills, High Peak, SK22 4QP',
-  {% endfor %}
-];
-
-$('.typeahead').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 1,
-  limit: 10
-},
-{
-  name: 'address',
-  source: substringMatcher(address)
-});
-$('.typeahead').bind('typeahead:select', function(ev, suggestion) {
-  $('#typeahead').after(suggestion);
-});
-
-</script> -->
-
 <script>
-var address = [
-  {% for i in range(1, 41) -%}
-    '{{i}} Union Road, New Mills, High Peak, SK22 4QP',
-  {% endfor %}
-];
-
-// Instantiate the Bloodhound suggestion engine
-var address = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.whitespace,
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  local: address
-});
-$('.typeahead').typeahead({
-  hint: true,
-  highlight: true,
-  minLength: 1
-},
-{
-  name: 'address',
-  limit: 100,
-  source: address
-});
-// $('.typeahead').bind('typeahead:select', function(ev, suggestion) {
-//   $('#typeahead').after('<div class="panel panel-border-wide alert-default"><p>' + suggestion + '</p></div>');
-//   $(this).typeahead("val", "");
-// });
-
-</script>
-
-<script>
-// var dataAddress = [
-//   {% for i in range(1, 41) -%}
-//     '{{i}} Union Road, New Mills, High Peak, SK22 4QP',
-//   {% endfor %}
-// ];
-
 var dataAddress = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('OrganisationName', 'Address1', 'City', 'Postcode'),
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   remote: {
-    url: 'https://openaddressesuk.org/addresses.json?postcode=%QUERY',
-    wildcard: '%QUERY'
+    url: 'https://alpha.openaddressesuk.org/addresses.json?town=%QUERY',
+    wildcard: '%QUERY',
+    filter: function (data) {
+            for (i in data.addresses) {
+              console.log(data.addresses[i]);
+            }
+            return data.addresses
+        }
   }
 });
+
 
 dataAddress.initialize();
 
 $('.typeahead').typeahead({
   hint: true,
   highlight: true,
-  minLength: 1
+  minLength: 3
 },
 {
   name: 'dataAddress',
-  display: function (item) { return item.street + ' - ' + item.postcode },
+  display: function (item) { return item.street.name.en + ' - ' + item.postcode.name },
   limit: 10,
   source: dataAddress.ttAdapter(),
   templates: {
         empty: [
             '<div class="empty">No matches found</div>'].join('\n'),
         suggestion: function (data) {
-          return '<p><strong>' + data.street + '</strong><br>' + data.town + ', ' + data.postcode + '</p>';
+          return '<p><strong>' + data.street.name.en + '</strong><br>' + data.town.name.en + ', ' + data.postcode.name + '</p>';
         }
     }
 });
@@ -158,7 +84,7 @@ $('.typeahead').typeahead({
 //   $( "form" ).submit();
 // });
 $('.typeahead').bind('typeahead:select', function(ev, suggestion) {
-  $('#typeahead').after('<div class="call-to-action"><p><strong>' + suggestion.street + '</strong><br>' + suggestion.town + ', ' + suggestion.postcode + '</p>');
+  $('#typeahead').after('<div class="call-to-action"><p><strong>' + suggestion.street.name.en + '</strong><br>' + suggestion.town.name.en + ', ' + suggestion.postcode.name + '</p>');
   $(this).typeahead("val", "");
 });
 

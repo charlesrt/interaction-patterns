@@ -69,6 +69,10 @@
   background-color: $govuk-blue;
 }
 
+.tt-selectable:hover .tt-highlight {
+  border-bottom: 1px solid $white !important;
+}
+
 .tt-suggestion.tt-cursor {
   color: #fff;
   background-color: $govuk-blue;

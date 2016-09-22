@@ -1,0 +1,167 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">
+        Search address
+      </h1>
+
+      <form action="confirm-address" method="post">
+
+        <div id="typeahead" class="form-group" data-required data-error="Enter your postcode">
+          <label for="postcode" class="form-label">Postcode or first line of address</label>
+          <input type="text" name="postcode" id="postcode" class="form-control typeahead" value="">
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Continue">
+        </div>
+
+      </form>
+
+      <p>
+        <a href="manual-address">I can't find the address</a>
+      </p>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+{{ super() }}
+
+<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+
+<!-- <script>
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substringRegex;
+
+    // an array that will be populated with substring matches
+    matches = [];
+
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        matches.push(str);
+      }
+    });
+
+    cb(matches);
+  };
+};
+
+var address = [
+  {% for i in range(1, 31) -%}
+    '{{i}} Union Road, New Mills, High Peak, SK22 4QP',
+  {% endfor %}
+];
+
+$('.typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1,
+  limit: 10
+},
+{
+  name: 'address',
+  source: substringMatcher(address)
+});
+$('.typeahead').bind('typeahead:select', function(ev, suggestion) {
+  $('#typeahead').after(suggestion);
+});
+
+</script> -->
+
+<script>
+var address = [
+  {% for i in range(1, 41) -%}
+    '{{i}} Union Road, New Mills, High Peak, SK22 4QP',
+  {% endfor %}
+];
+
+// Instantiate the Bloodhound suggestion engine
+var address = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  local: address
+});
+$('.typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'address',
+  limit: 100,
+  source: address
+});
+// $('.typeahead').bind('typeahead:select', function(ev, suggestion) {
+//   $('#typeahead').after('<div class="panel panel-border-wide alert-default"><p>' + suggestion + '</p></div>');
+//   $(this).typeahead("val", "");
+// });
+
+</script>
+
+<script>
+// var dataAddress = [
+//   {% for i in range(1, 41) -%}
+//     '{{i}} Union Road, New Mills, High Peak, SK22 4QP',
+//   {% endfor %}
+// ];
+
+var dataAddress = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('OrganisationName', 'Address1', 'City', 'Postcode'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  remote: {
+    url: 'https://openaddressesuk.org/addresses.json?postcode=%QUERY',
+    wildcard: '%QUERY'
+  }
+});
+
+dataAddress.initialize();
+
+$('.typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'dataAddress',
+  display: function (item) { return item.street + ' - ' + item.postcode },
+  limit: 10,
+  source: dataAddress.ttAdapter(),
+  templates: {
+        empty: [
+            '<div class="empty">No matches found</div>'].join('\n'),
+        suggestion: function (data) {
+          return '<p><strong>' + data.street + '</strong><br>' + data.town + ', ' + data.postcode + '</p>';
+        }
+    }
+});
+// $('.typeahead').bind('typeahead:select', function(ev, suggestion) {
+//   $( "form" ).submit();
+// });
+$('.typeahead').bind('typeahead:select', function(ev, suggestion) {
+  $('#typeahead').after('<div class="call-to-action"><p><strong>' + suggestion.street + '</strong><br>' + suggestion.town + ', ' + suggestion.postcode + '</p>');
+  $(this).typeahead("val", "");
+});
+
+</script>
+
+{% endblock %}

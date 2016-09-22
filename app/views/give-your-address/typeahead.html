@@ -74,15 +74,12 @@ $('.typeahead').typeahead({
   source: dataAddress.ttAdapter(),
   templates: {
         empty: [
-            '<div class="empty">No matches found</div>'].join('\n'),
+            '<p class="tt-suggestion">No matches found - <a href="manual-address">enter address manually</a></p>'].join('\n'),
         suggestion: function (data) {
           return '<p><strong>' + data.street.name.en + '</strong><br>' + data.town.name.en + ', ' + data.postcode.name + '</p>';
         }
     }
 });
-// $('.typeahead').bind('typeahead:select', function(ev, suggestion) {
-//   $( "form" ).submit();
-// });
 $('.typeahead').bind('typeahead:select', function(ev, suggestion) {
   $('#typeahead').after('<div class="call-to-action"><p><strong>' + suggestion.street.name.en + '</strong><br>' + suggestion.town.name.en + ', ' + suggestion.postcode.name + '</p>');
   $(this).typeahead("val", "");

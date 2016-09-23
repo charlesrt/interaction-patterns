@@ -48,8 +48,9 @@
   //         box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
 .tt-highlight {
-  font-weight: inherit !important;
-  border-bottom: 1px solid $secondary-text-colour;
+  font: inherit !important;
+  // border-bottom: 1px solid $secondary-text-colour;
+  background-color: $highlight-colour;
 }
 
 .tt-suggestion {
@@ -60,7 +61,7 @@
   border: 2px solid $border-colour;
   display: block;
   position: relative;
-  line-height: 2em;
+  // line-height: 2em;
 }
 
 .tt-selectable:hover {
@@ -70,7 +71,8 @@
 }
 
 .tt-selectable:hover .tt-highlight {
-  border-bottom: 1px solid $white !important;
+  // border-bottom: 1px solid $white !important;
+  background-color: $link-hover-colour;
 }
 
 .tt-suggestion.tt-cursor {
